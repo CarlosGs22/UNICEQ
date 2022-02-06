@@ -1,0 +1,30 @@
+.logoAdminLg {
+    width: 80%;
+    height: 90px;
+}
+
+.menuLateral {
+    background: -webkit-linear-gradient(360deg , #8e1a25, #8e1a2512) !important;
+    background: linear-gradient(0deg , #8e1a25, #8e1a2512) !important;
+}
+
+
+.btn-uniceq {
+    background-color: #7b3b40;
+    color: #ffffff80;
+}
+.btn-uniceq:hover {
+    color: white;
+
+}
+
+.uniceq-color {
+    color: #ffffff80 i !important;
+}
+
+
+.iconoLib {
+    margin-right: 6px;
+}
+
+
