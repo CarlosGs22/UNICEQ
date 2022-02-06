@@ -19,11 +19,11 @@ class Meta_General_Model extends Model
     public function _obtenerMetag($id, $tipo)
     {
         if ($tipo == "meta_general") {
-            $sql = "SELECT * FROM uniceqed_ma2.meta_general where id = ?";
+            $sql = "SELECT * FROM  meta_general where id = ?";
         }else  if ($tipo == "meta_mensual") {
-            $sql = "SELECT * FROM uniceqed_ma2.meta_mensual where id = ?";
+            $sql = "SELECT * FROM  meta_mensual where id = ?";
         }else{
-            $sql = "SELECT * FROM uniceqed_ma2.meta_anual where id = ?";
+            $sql = "SELECT * FROM  meta_anual where id = ?";
         }
 
         $query = $this->query($sql, $id);

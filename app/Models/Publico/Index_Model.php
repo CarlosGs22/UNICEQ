@@ -22,19 +22,19 @@ class Index_Model extends Model
     count(mt.id_indicador) as metas_cum,
     (
         SELECT count(ind.idindicador) as metas_por
-        FROM uniceqed_ma2.area ar
+        FROM  area ar
             inner join indicador ind on ind.idarea = ar.idarea
         where ar.idarea = a.idarea
     ) as metas_por,
     ((count(mt.id_indicador) / (
         SELECT count(ind.idindicador) as metas_por
-        FROM uniceqed_ma2.area ar
+        FROM  area ar
             inner join indicador ind on ind.idarea = ar.idarea
         where ar.idarea = a.idarea
     ) * 100) * a.valor)/100 as promedio,a.valor
-FROM uniceqed_ma2.meta_mensual mt
-    inner join uniceqed_ma2.indicador i on i.idindicador = mt.id_indicador
-    inner join uniceqed_ma2.area a on i.idarea = a.idarea
+FROM  meta_mensual mt
+    inner join  indicador i on i.idindicador = mt.id_indicador
+    inner join  area a on i.idarea = a.idarea
 where mt.alcanzado > 0
     and mt.alcanzado >= mt.planeado
     and mt.estado = 1
@@ -51,19 +51,19 @@ group by a.idarea";
         count(mt.id_indicador) as metas_cum,
         (
             SELECT count(ind.idindicador) as metas_por
-            FROM uniceqed_ma2.area ar
+            FROM  area ar
                 inner join indicador ind on ind.idarea = ar.idarea
             where ar.idarea = a.idarea and ind.estado = 1
         ) as metas_por,
         ((count(mt.id_indicador) / (
             SELECT count(ind.idindicador) as metas_por
-            FROM uniceqed_ma2.area ar
+            FROM  area ar
                 inner join indicador ind on ind.idarea = ar.idarea
             where ar.idarea = a.idarea and ind.estado = 1
         ) * 100) * a.valor)/100 as promedio,a.valor
-    FROM uniceqed_ma2.meta_mensual mt
-        inner join uniceqed_ma2.indicador i on i.idindicador = mt.id_indicador
-        inner join uniceqed_ma2.area a on i.idarea = a.idarea
+    FROM  meta_mensual mt
+        inner join  indicador i on i.idindicador = mt.id_indicador
+        inner join  area a on i.idarea = a.idarea
     where mt.alcanzado > 0
         and mt.alcanzado >= mt.planeado
         and mt.estado = 1 and i.estado = 1
